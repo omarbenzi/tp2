@@ -161,7 +161,6 @@ let gestionConferences = function () {
 		 * en retour d'une requête ajax
 		 */
 		afficherConferences(Conferences, ret) {
-			console.log(this.getNeededtableHeader(Conferences));
 
 
 			// réinitialisation de la zone d'affichage dynamique

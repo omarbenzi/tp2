@@ -1,3 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery UI Accordion - Default functionality</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$("#accordion").accordion();
+		});
+	</script>
+</head>
+
+<body>
+
+	<div id="accordion">
+		<h3>Section 1</h3>
+		<div>
+			<p>
+				Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+
+			</p>
+		</div>
+		<h3>Section 2</h3>
+		<div>
+			<p>
+				Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+				Clas
+			</p>
+
+		</div>
+		<h3>Section 3</h3>
+		<div>
+			<p>
+				Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+				Ph
+			</p>
+			<ul>
+				<li>List item one</li>
+				<li>List item two</li>
+
+			</ul>
+		</div>
+		<h3>Section 4</h3>
+		<div>
+			<p>
+				Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+
+			</p>
+			<p>
+				Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+				Clas
+			</p>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,31 +87,36 @@
 			// 2ième possibilité: avec la requête ajax jQuery "get"  
 			$.get({ url: 'templates.html', cache: false }).
 				done((data) => {
-
 					$('#templates').html(data);
 					gestionConferences.listerConferences();
-				});
-			// $(function () {
-			// 	$("#accordion").accordion();
-			// });
+				})
 
 
+
+			$('.accordion').accordion({
+				option: "icons",
+				collapsible: true,
+				active: false,
+				height: 'fill',
+				header: '.item > h3',
+			}).sortable({
+				items: '.item'
+			});
+
+
+			$(".accordion2").click(function (event) {
+
+
+			});
+		});
 	</script>
 </head>
 
+
+
+
 <body>
-	<div id="list1" class="dropdown-check-list" tabindex="100">
-		<span class="anchor">Select Fruits</span>
-		<ul class="items">
-			<li><input type="checkbox" />Apple </li>
-			<li><input type="checkbox" />Orange</li>
-			<li><input type="checkbox" />Grapes </li>
-			<li><input type="checkbox" />Berry </li>
-			<li><input type="checkbox" />Mango </li>
-			<li><input type="checkbox" />Banana </li>
-			<li><input type="checkbox" />Tomato</li>
-		</ul>
-	</div>
+
 	<p id="erreur"></p>
 	<div id="wrapper"></div>
 	<div id="templates"></div>
