@@ -1,0 +1,121 @@
+<!--  Template liste des clients
+	  ==========================
+-->
+<template id="t-ConferencesListe">
+	<h2>Liste des Conferences</h2>
+	<p id="ret">&nbsp;</p>
+	<p><span class="actions" data-action="ajouter">Ajouter un client</span></p>
+	<section id="clientsListe">
+		<div class="l">
+			<div class="t numero">Numéro</div>
+			<div class="t Titre">Titre</div>
+			<div class="t Titre,">Résumé</div>
+			<div class="t Titre,">Thématique (catégorie)</div>
+			<div class="t Titre,">Présentateur</div>
+			<div class="t Titre,">Institution du présentateur</div>
+			<div class="t Date">Date</div>
+			<div class="t heure">Heure de début</div>
+			<div class="t heure">Heure de fin</div>
+			<div class="t heure">Salle</div>
+			<div class="t actions">Actions</div>
+		</div>
+	</section>
+	<template id="t-ConferencesListeItem">
+		<div class="l">
+			<div class="c numero">${c.conference_id}</div>
+			<div class="c Titre">${c.conference_titre}</div>
+			<div id="accordion" class="c Titre">${c.conference_resume}</div>
+			<div class="c Titre">${c.conference_categorie}</div>
+			<div class="c Titre">${c.conference_presentateur}</div>
+			<div class="c Titre">${c.conference_Institution_du_presentateur}</div>
+			<div class="c Date">${c.conference_date}</div>
+			<div class="c heure">${c.conference_heure_debut}</div>
+			<div class="c heure">${c.conference_heure_fin}</div>
+			<div class="c heure">${c.conference_sale}</div>
+			<div class="c actions">
+				<span data-action="modifier" data-id="${c.conference_id}">Modifier</span>&nbsp;&nbsp;
+				<span data-action="supprimer" data-id="${c.conference_id}">Supprimer</span>
+			</div>
+		</div>
+	</template>
+</template>
+
+<!--  Template formulaire d'ajout d'un client
+	  =======================================
+-->
+<template id="t-ConferenceAjout">
+	<h2>Ajout d'une Conference</h2>
+	<section id="clientAjout">
+		<form name="frm" action="">
+			<label>Titre</label>
+			<input type="text" name="conference_titre">
+			<span id=conference_titre_err></span>
+			<label>Résumé</label>
+			<input type="text" name="conference_resume">
+			<span id=conference_resume_err></span>
+			<label>Thématique (catégorie)</label>
+			<input type="text" name="conference_categorie">
+			<span id=conference_categorie_err></span>
+			<label>Présentateur</label>
+			<input type="text" name="conference_presentateur">
+			<span id=conference_presentateur_err></span>
+			<label>Institution du présentateur</label>
+			<input type="text" name="conference_Institution_du_presentateur">
+			<span id=conference_Institution_du_presentateur_err></span>
+			<label>Date</label>
+			<input type="text" name="conference_date" placeholder="AAAA-MM-JJ">
+			<span id=conference_date_err></span>
+			<label>Heure de début</label>
+			<input type="text" name="conference_heure_debut" placeholder="HH:MM">
+			<span id=conference_heure_debut_err></span>
+			<label>Heure de fin</label>
+			<input type="text" name="conference_heure_fin" placeholder="HH:MM">
+			<span id=conference_heure_fin_err></span>
+			<label>Salle</label>
+			<input type="text" name="conference_sale">
+			<span id="conference_sale_err"></span>
+			<input type="button" id="bValider" value="Valider">
+		</form>
+	</section>
+</template>
+
+<!--  Template formulaire de modification d'un client
+	  ===============================================
+-->
+<template id="t-conferenceModification">
+	<h2>Modification d'un client</h2>
+	<section id="clientModification">
+		<form name="frm" action="">
+			<label>Titre</label>
+			<input type="text" name="conference_titre" value="${c.conference_titre}">
+			<span id=conference_titre_err></span>
+			<label>Résumé</label>
+			<input type="text" name="conference_resume" value="${c.conference_resume}">
+			<span id=conference_resume_err></span>
+			<label>Thématique (catégorie)</label>
+			<input type="text" name="conference_categorie" value="${c.conference_categorie}">
+			<span id=conference_categorie_err></span>
+			<label>Présentateur</label>
+			<input type="text" name="conference_presentateur" value="${c.conference_presentateur}">
+			<span id=conference_presentateur_err></span>
+			<label>Institution du présentateur</label>
+			<input type="text" name="conference_Institution_du_presentateur"
+				value="${c.conference_Institution_du_presentateur}">
+			<span id=conference_Institution_du_presentateur_err></span>
+			<label>Date</label>
+			<input type="text" name="conference_date" value="${c.conference_date}">
+			<span id=conference_date_err></span>
+			<label>Heure de début</label>
+			<input type="text" name="conference_heure_debut" value="${c.conference_heure_debut}">
+			<span id=conference_heure_debut_err></span>
+			<label>Heure de fin</label>
+			<input type="text" name="conference_heure_fin" value="${c.conference_heure_fin}">
+			<span id=conference_heure_fin_err></span>
+			<label>Salle</label>
+			<input type="text" name="conference_sale" value="${c.conference_sale}">
+			<span id="conference_sale_err"></span>
+			<input type="hidden" name="conference_id" value="${c.conference_id}">
+			<input type="button" id="bValider" value="Valider">
+		</form>
+	</section>
+</template>

@@ -1,0 +1,337 @@
+/* reset CSS */
+
+body, header, main, section, article, footer, p, img, span, div, form, label, input, ul , li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Verdana, Helvetica, sans-serif;
+	margin: 0 auto;
+	width: 90%;
+	min-width: 1024px;
+	
+}
+
+p { margin-top: 50px }
+
+#wrapper {
+	margin: 20px auto;
+	width: 100%;
+}
+
+/* liste des clients
+   ------------------ */
+
+#wrapper p {
+	margin: 20px 0;
+}
+
+.l {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.t {
+	text-align: center;
+	font-weight: bold;
+	border: 2px solid cornflowerblue;
+}
+
+.t, .c {
+	box-sizing: border-box;
+	margin: 2px;
+	padding: 5px 10px;
+	line-height: 32px;
+	border-radius: 3px;
+}
+
+.l:nth-of-type(2n+1) .c {
+	background-color: #eee;
+}
+
+.l:nth-of-type(2n) .c {
+	background-color: #ccc;
+}
+
+.numero {
+	padding-right: 20px;
+	width: 100px;
+	text-align: right;
+}
+.Titre {
+	width: 300px;
+}
+
+.Date {
+	width: 200px;
+	text-align: center;
+}
+
+.heure {
+	width: 150px;
+	text-align: center;
+}
+
+.actions {
+	width: 250px;
+}
+
+[data-action] {
+	color: cornflowerblue;
+	cursor: pointer;
+}
+
+[data-action]:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+/* formulaires 
+   ----------- */
+
+label, input {
+	display: block;
+	box-sizing: border-box;
+	margin-bottom: 5px;
+}
+
+input {
+	display: inline-block;
+	margin-bottom: 40px;
+	padding: 8px;
+	width: 300px;
+	font-size: 16px;
+	font-family: Verdana, Helvetica, sans-serif;
+}
+
+input[type="button"] {
+	display: block;
+}
+
+form span {
+	display: inline-block;
+	padding-left: 10px;
+	color: brown;
+}
+
+
+/* ------------------------------------------------- */
+/* source d'une partie du css  https://css-tricks.com/targetting-menu-elements-submenus-navigation-bar/   et https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_intro */
+
+
+  
+  nav {
+	display: block;
+	margin-bottom: 40px;
+  }
+  nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+  }
+  input {
+	background: #fff;
+	color: #111;
+	text-decoration: none;
+	padding: 0.8em 1.8em;
+	border-bottom: 4px #aaa solid;
+	box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
+	border-radius: 6px;
+	margin-left: 20px;
+  }
+  input:hover,
+  input:focus {
+	border-color: orange;
+  }
+  input::-webkit-input-placeholder {
+	font-size: 10px;
+	line-height: 3;
+	color: #111;
+  }
+  
+  .nav a {
+	display: block;
+	background: #111;
+	color: #fff;
+	text-decoration: none;
+	padding: 0.8em 1.8em;
+	text-transform: uppercase;
+	font-size: 80%;
+	letter-spacing: 2px;
+	text-shadow: 0 -1px 0 #000;
+	position: relative;
+  }
+  .nav {
+	vertical-align: top;
+	display: inline-block;
+	box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
+	border-radius: 6px;
+  }
+  .nav li {
+	position: relative;
+  }
+  .nav > li  {
+	float: left;
+	margin-right: 1px;
+  }
+  .nav > li > a {
+	margin-bottom: 1px;
+	box-shadow: inset 0 2em 0.33em -0.5em #555;
+  }
+  .nav > li:hover,
+  .nav > li:hover > a {
+	border-bottom-color: orange;
+  }
+  .nav li:hover > a {
+	color: orange;
+  }
+  .nav > li:first-child {
+	border-radius: 4px 0 0 4px;
+  }
+  .nav > li:first-child > a {
+	border-radius: 4px 0 0 0;
+  }
+  .nav > li:last-child {
+	border-radius: 0 0 4px 0;
+	margin-right: 0;
+  }
+  .nav > li:last-child > a {
+	border-radius: 0 4px 0 0;
+  }
+  .nav li li a {
+	margin-top: 1px;
+  }
+  
+  .nav li a:first-child:nth-last-child(2):before {
+	content: "";
+	position: absolute;
+	height: 0;
+	width: 0;
+	border: 5px solid transparent;
+	top: 50%;
+	right: 5px;
+  }
+  
+  /* submenu positioning*/
+  .nav ul {
+	position: absolute;
+	white-space: nowrap;
+	border-bottom: 5px solid orange;
+	z-index: 1;
+	left: -99999em;
+  }
+  .nav > li:hover > ul {
+	left: auto;
+	padding-top: 5px;
+	min-width: 100%;
+  }
+  .nav > li li ul {
+	border-left: 1px solid #fff;
+  }
+  
+  .nav > li li:hover > ul {
+	/* margin-left: 1px */
+	left: 100%;
+	top: -1px;
+  }
+  /* arrow hover styling */
+  .nav > li > a:first-child:nth-last-child(2):before {
+	border-top-color: #aaa;
+  }
+  .nav > li:hover > a:first-child:nth-last-child(2):before {
+	border: 5px solid transparent;
+	border-bottom-color: orange;
+	margin-top: -5px;
+  }
+  .nav li li > a:first-child:nth-last-child(2):before {
+	border-left-color: #aaa;
+	margin-top: -5px;
+  }
+  .nav li li:hover > a:first-child:nth-last-child(2):before {
+	border: 5px solid transparent;
+	border-right-color: orange;
+	right: 10px;
+  }
+  
+  /* .ascendant  {
+	margin-left: 120px;
+  } */
+  
+  table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+  }
+  
+  td,
+  th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+  }
+  th {
+	cursor: pointer;
+  }
+  
+  tr:nth-child(even) {
+	background-color: #dddddd;
+  }
+  .critaires{
+	max-width: 28%;
+	font-size: 20px;
+  }
+  .critaires span{
+	margin-left: 10px;
+  }
+  
+  .selected{
+	color: orange !important;
+  }
+  
+  /* --------------------------- */
+  .dropdown-check-list {
+	display: inline-block;
+  }
+  .dropdown-check-list .anchor {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	padding: 5px 50px 5px 10px;
+	border: 1px solid #ccc;
+  }
+  .dropdown-check-list .anchor:after {
+	position: absolute;
+	content: "";
+	border-left: 2px solid black;
+	border-top: 2px solid black;
+	padding: 5px;
+	right: 10px;
+	top: 20%;
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+  }
+  .dropdown-check-list .anchor:active:after {
+	right: 8px;
+	top: 21%;
+  }
+  .dropdown-check-list ul.items {
+	padding: 2px;
+	display: none;
+	margin: 0;
+	border: 1px solid #ccc;
+	border-top: none;
+  }
+  .dropdown-check-list ul.items li {
+	list-style: none;
+  }
+  .dropdown-check-list.visible .anchor {
+	color: #0094ff;
+  }
+  .dropdown-check-list.visible .items {
+	display: block;
+  }
