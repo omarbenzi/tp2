@@ -1,6 +1,46 @@
 <!--  Template liste des clients
 	  ==========================
 -->
+<template id="papa_tamplate" class="papa_tamplate">
+
+	<h3>${valeur}</h3>
+	<template id="papa_fils" class="papa_fils">
+		<div class="accordion_2">
+			<h3>Titre: ${valeur.conference_titre} Résumé: ${c.conference_resume}</h3>
+			<div>
+
+				<table id="table_id" class="display">
+					<thead>
+						<tr>
+							<th>Numéro</th>
+							<th>Présentateur</th>
+							<th>Institution du présentateur</th>
+							<th>Date</th>
+							<th>Heure de début</th>
+							<th>Heure de fin</th>
+							<th>Salle</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>${c.conference_id}</td>
+							<td>${c.conference_presentateur}</td>
+							<td>${c.conference_Institution_du_presentateur}</td>
+							<td>${c.conference_date}</td>
+							<td>${c.conference_heure_debut}</td>
+							<td>${c.conference_heure_fin}</td>
+							<td>${c.conference_sale}</td>
+							<td><span data-action="modifier" data-id="${c.conference_id}">Modifier</span>&nbsp;&nbsp;
+								<span data-action="supprimer" data-id="${c.conference_id}">Supprimer</span></td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</template>
+</template>
 <template id="t-ConferencesListe">
 	<h2>Liste des Conferences</h2>
 	<p id="ret">&nbsp;</p>
@@ -119,22 +159,3 @@
 		</form>
 	</section>
 </template>
-
-<table id="table_id" class="display">
-	<thead>
-		<tr>
-			<th>Column 1</th>
-			<th>Column 2</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Row 1 Data 1</td>
-			<td>Row 1 Data 2</td>
-		</tr>
-		<tr>
-			<td>Row 2 Data 1</td>
-			<td>Row 2 Data 2</td>
-		</tr>
-	</tbody>
-</table>

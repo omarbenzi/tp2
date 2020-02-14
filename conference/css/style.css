@@ -289,9 +289,14 @@ form span {
   .selected{
 	color: orange !important;
   }
-  
-  /* --------------------------- */
-  #accordion {
-    margin:20px;
-    height:300px;
-}
+  .accordion_2 div  p{
+	  color: red;
+	  height: 100%;
+	  
+  }
+  .accordion_2 h3 + div  {
+	  color: red;
+  }
+  .ui-accordion-content-active{
+	  height: 100%!important  ; 
+	 }

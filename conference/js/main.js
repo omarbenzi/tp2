@@ -2,6 +2,8 @@ let gestionConferences = function () {
 
 	const BASE_URI = "https://e1995039.webdev.cmaisonneuve.qc.ca/tp2/backend/";
 
+	categories = [];
+
 	let oGestionConferences = {
 
 		/**
@@ -161,27 +163,48 @@ let gestionConferences = function () {
 		 * en retour d'une requête ajax
 		 */
 		afficherConferences(Conferences, ret) {
+			$("#wrapper").html("");
+			Object.keys(Conferences).forEach(element => { // recuperation des categorie
+				if (!categories.includes(Conferences[element].conference_categorie)) categories.push(Conferences[element].conference_categorie); // si nous n'avons pas encore la cle
+			});
+			$(categories).each(function (index, valeur) {
 
 
+				let t = $("#papa_tamplate").prop("content");
+				let tClone = t.cloneNode(true).firstElementChild;
+				$(tClone).html(eval("`" + $(tClone).html() + "`"));
+				console.log($(tClone));
+
+				$("#wrapper").append(tClone);
+
+			})
+
+			$(function () {
+				$(".accordion").accordion({
+					collapsible: true,
+					active: false,
+				});
+				// $(".accordion_2").accordion({
+				// 	collapsible: true,
+				// 	active: false,
+				// });
+			});
 			// réinitialisation de la zone d'affichage dynamique
 			// ---
-			$("#wrapper").html("");
 
 			// insertion de l'en-tête fixe à partir d'un clone du template (t)
 			// ---
-			let t = $("#t-ConferencesListe").prop("content");
-			let tClone = document.importNode(t, true);
+
 			$("#wrapper").append(tClone);
 			if (ret) $("#ret").html(ret);
 
 			// insertion de chaque ligne Conference à partir d'un clone du sous-template (t2)
 			// ---
-			let t2 = $("#t-ConferencesListeItem").prop("content");
+			let t2 = $("#papa_fils").prop("content");
 			$(Conferences).each((i, c) => {
 
 				let t2Clone = t2.cloneNode(true).firstElementChild;
 				$(t2Clone).html(eval("`" + $(t2Clone).html() + "`"));
-				$("#wrapper").append(t2Clone);
 			});
 
 			// création des listeners associés aux spans des actions
@@ -189,6 +212,7 @@ let gestionConferences = function () {
 			$("#wrapper [data-action='ajouter']").click(this.ajouterConference.bind(this));
 			$("#wrapper [data-action='modifier']").click(this.modifierConference.bind(this));
 			$("#wrapper [data-action='supprimer']").click(this.supprimerConference.bind(this));
+
 		},
 
 		/**
